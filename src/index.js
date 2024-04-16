@@ -5,6 +5,7 @@ import App from './App';
 import './index.css';
 import EventPage from './EventPage'
 import TimeTest from "./TimeTest";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(
   <React.StrictMode>

@@ -1,3 +1,5 @@
+//CreateEvent.js
+
 import React from "react";
 import "./App.css";
 import { ConfigProvider, DatePicker, TimePicker, Button, Form, Input } from "antd";
@@ -6,6 +8,7 @@ import { v4 as uuidv4 } from 'uuid'; // UUID 라이브러리에서 v4 함수를 
 import koKR from 'antd/lib/locale/ko_KR';
 import 'dayjs/locale/ko';
 import dayjs from 'dayjs';
+import CommonHeaderAndSidebar from './Components/CommonHeaderAndSidebar';
 
 dayjs.locale('ko');
 
@@ -93,15 +96,7 @@ class CreateEvent extends React.Component {
     return (
       
       <div className="App">
-        <header className="header">
-          <div className="logo-container">
-            <img src="logo.png" alt="모일까 로고" className="logo" />
-          </div>
-          <div className="nav-buttons">
-            <button>로그인</button>
-            <button>회원가입</button>
-          </div>
-        </header>
+        <CommonHeaderAndSidebar />
         <main className="main-content">
           <h1>Availability Selector</h1>
           <Form.Item
@@ -131,7 +126,7 @@ class CreateEvent extends React.Component {
               format="HH시 mm분"
               onChange={this.handleStartTimeChange}
               placeholder="시작 시간"
-              minuteStep={30} // 분 단위 30분 간격으로 변경
+              minuteStep={60} // 분 단위 30분 간격으로 변경
                // 한국어 로케일 적용
             />
             <TimePicker
@@ -139,7 +134,7 @@ class CreateEvent extends React.Component {
               format="HH시 mm분"
               onChange={this.handleEndTimeChange}
               placeholder="종료 시간"
-              minuteStep={30} // 분 단위 30분 간격으로 변경
+              minuteStep={60} // 분 단위 30분 간격으로 변경
                // 한국어 로케일 적용
             />
             </ConfigProvider>

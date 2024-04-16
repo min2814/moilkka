@@ -1,8 +1,11 @@
+//EventPage.js
+
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import moment from "moment";
 import { Button } from "antd";
 import ScheduleSelector from "react-schedule-selector";
+import CommonHeaderAndSidebar from './Components/CommonHeaderAndSidebar';
 
 function EventPage() {
   const [eventData, setEventData] = useState(null);
@@ -73,21 +76,13 @@ function EventPage() {
   const endDate = moment(eventData.time).format("YYYY-MM-DD");
   const startTime = moment(eventData.day).format("HH:mm");
   const endTime = moment(eventData.time).format("HH:mm");
-  const Schedule_Start = moment(eventData.day, "YYYY-MM-DD").toDate();
-  const Schedule_End = moment(eventData.time, "YYYY-MM-DD").toDate();
+  const Schedule_Start = moment(eventData.day).toDate();
+  const Schedule_End = moment(eventData.time).toDate();
 
   return (
     <div className="App">
-      <header className="header">
-        <div className="logo-container">
-          <img src="/logo.png" alt="모일까 로고" className="logo" />
-        </div>
-        <div className="nav-buttons">
-          <button>로그인</button>
-          <button>회원가입</button>
-        </div>
-      </header>
-
+      
+      <CommonHeaderAndSidebar />
       <main className="main-content">
 
 
